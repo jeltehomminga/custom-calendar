@@ -1,69 +1,69 @@
 import React, { useEffect, useState } from 'react'
-import { calendarMonthMatch } from '../utils/calendarSet'
+import { calculateMonthDays } from '../utils/calculateMonthDays'
+import Day from '../components/Day'
 
 const CalendarMonthView = ({ month, year, onDateChange, currentDay }) => {
   const [monthViewDays, setMonthViewDays] = useState({})
 
   useEffect(() => {
-    console.log(calendarMonthMatch[month])
-    setMonthViewDays(calendarMonthMatch[month])
-  }, [month])
+    setMonthViewDays(calculateMonthDays(month, year))
+  }, [month, year])
+
+
+  const weekDays =['Zo', 'Ma', 'Di', 'Wo', 'Do', 'Vr', 'Za']
+
   console.log(monthViewDays)
   return (
-    <div>
-      <h2>CalendarMonthView</h2>
-      <div>
-        {month && monthViewDays && (
+<>
+
+
+
+        {month && month !== 0 && monthViewDays && (
+
+
           <div className='days-container'>
+
+            {weekDays.map((weekDay)=> <p className='weekday' key={weekDay}>{weekDay}</p>)}
+
             {monthViewDays.prevMonthDays &&
               monthViewDays.prevMonthDays.map(day => (
-                <p
-                  className='day'
+                  <Day 
+                  day={day} 
                   key={`prevMonth-${day}`}
-                  onClick={() =>
-                    onDateChange(
-                      `${day} - ${
-                        month - 1 > 9 ? month - 1 : '0' + month - 1
-                      } - ${year}`
-                    )
-                  }>
-                  {day}
-                </p>
+                  month={Number(month) === 1 ? 11 : Number(month) - 1} 
+                  year={Number(month) === 1 ? Number(year) - 1 : year}
+                  onDateChange={onDateChange}
+                  />
               ))}
 
             {monthViewDays.currentMonthDays &&
               monthViewDays.currentMonthDays.map(day => (
-                <p
-                  className='day'
+
+                <Day 
                   key={`currentMonth-${day}`}
-                  onClick={() =>
-                    onDateChange(
-                      `${day} - ${month > 9 ? month : '0' + month} - ${year}`
-                    )
-                  }>
-                  {day}
-                </p>
+                  day={day} 
+                  month={month} 
+                  year={year}
+                  onDateChange={onDateChange}
+                />
+
               ))}
 
             {monthViewDays.nextMonthDays &&
               monthViewDays.nextMonthDays.map(day => (
-                <p
-                  className='day'
-                  key={`nextMonth-${day}`}
-                  onClick={() =>
-                    onDateChange(
-                      `${day} - ${
-                        month + 1 > 9 ? month + 1 : '0' + (month + 1)
-                      } - ${year}`
-                    )
-                  }>
-                  {day}
-                </p>
+
+                <Day 
+                key={`nextMonth-${day}`}
+                day={day} 
+                month={Number(month) === 12 ? 1 : Number(month) + 1} 
+                year={Number(month) === 12 ? Number(year) + 1 : year}
+                onDateChange={onDateChange}
+                />
+
               ))}
           </div>
         )}
-      </div>
-    </div>
+</>
   )
 }
 

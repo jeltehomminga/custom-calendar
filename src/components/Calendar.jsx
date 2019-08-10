@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import CalendarMonthView from './CalendarMonthView'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons'
 
 const Calendar = props => {
   const [date, setDate] = useState('11 - 03 - 2018')
@@ -14,18 +16,31 @@ const Calendar = props => {
     setMonth(Number(dateValues[1]))
     setDay(Number(dateValues[0]))
     setYear(newYear)
+    debugger
   }, [date])
 
+
+
   return (
-    <div>
-      <input
-        value={date}
-        type='text'
-        pattern='/[0-33]-[0-11]-3000/'
-        onChange={({ target: { value } }) => setDate(value)}
-        maxLength='14'
-        minLength='6'
-      />
+    <div className='calendar-container'>
+      
+      <div className='input-container'>
+        <div className='inputfield-container'>
+        <label>Ingangsdatum</label>
+          <input
+            value={date}
+            type='text'
+            pattern='/[0-33]-[0-11]-3000/'
+            onChange={({ target: { value } }) => setDate(value)}
+            maxLength='14'
+            minLength='6'
+          />
+        </div>
+        <div className='inputicon-container' onClick={()=>setMonthView(!monthView)}>
+          <FontAwesomeIcon className='calendar' icon={faCalendarAlt} />
+        </div>
+      </div>
+
       {monthView && (
         <CalendarMonthView
           date={date}
@@ -35,6 +50,7 @@ const Calendar = props => {
           onDateChange={setDate}
         />
       )}
+
     </div>
   )
 }

@@ -4,7 +4,7 @@ import Calendar from './components/Calendar'
 
 function App() {
   return (
-    <div className='App'>
+    <div >
       <Calendar date={'09 - 08 - 2019'} />
     </div>
   )

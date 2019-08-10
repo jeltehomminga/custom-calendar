@@ -16,16 +16,7 @@ even months have 32 days, odd months 33
 a week has 7 days
 
 So the total amount of days is 11 * 33 minus 5 = 358
-the modulus 7 of 358 is 0, ow nice! so every year has the same amount of weeks, and even more important every year will start on the same day, and the months also
-So every year has the same calendar view, so probably we don't have to render anything different when a year changes
-
-after creating the logic it now becomes clear every 3 months the calendar starts with same calendarday, so 33 + 32 + 33 modulus 7 also equals zero. So actually there are only 3 different combinations of calendardays. Month 1, 4, 7, 10 have calendar set 1, month 2, 5, 8, 11 calendarset 2, and month 3, 6 and 9 calendar set 3. Now that we know this we can consider make the calendarsets and return the set depending on the number. For sake of performance it's probably better to not calculate the calendardays everytime again if we already know what the outcome will be. But let's keep the logic also available for when something has to change.
-
-
-
-
-
-
+the modulus 7 of 358 is 01, so every year the weekdays change by 1
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

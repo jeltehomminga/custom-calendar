@@ -1,53 +1,53 @@
-const calculateMonthDays = month => {
+export const calculateMonthDays = (month, year) => {
+
   // decide days for the even and off months
-  const monthDays = month % 2 === 0 ? 32 : 33
-  const lastMonthDays = monthDays === 32 ? 33 : 32
+
+  let monthDays = 0
+  let lastMonthDays = 0
+
+  if (month > 0 && month < 12) {
+  monthDays =  month % 2 === 0 ? 32 : 33
+  lastMonthDays = monthDays === 32 ? 33 : 32
+
+  }
+
   const oddMonths = Math.ceil(month / 2)
   const evenMonths = month - oddMonths
+  
 
   // total days that have passed in the year
-  const days = oddMonths * 33 + evenMonths * 32
+  const totalYearsDays = year * 358
+  const daysSelectedYear = (oddMonths * 33) + evenMonths * 32
 
   // the remainder of 7 to check days before this month
-  const daysBefore = days % 7
-
+  const daysBefore = ((daysSelectedYear + totalYearsDays) % 7)
+  
   // check days after
-  const daysAfter = 7 - daysBefore
+  const daysAfter = 7 - ((daysBefore + monthDays) % 7) 
 
-  // check which daynumber the first Monday would be
-  const firstSundayOftheMonth = ((monthDays + daysAfter) % 35) + 1
+  // so lastmonthDays minus daysbefore should be when the new row starts, then the monthdays, and then what is left with remainder of 7 
+  let startDay = (lastMonthDays - daysBefore) + 1
 
-  // which day will the calendar view start
-  let startDayNumber =
-    firstSundayOftheMonth !== 1
-      ? lastMonthDays - (7 - firstSundayOftheMonth)
-      : firstSundayOftheMonth
-
-  const daysBeforeArr = []
-  if (startDayNumber !== 1) {
-    for (let i = startDayNumber; i <= lastMonthDays; i++) {
-      daysBeforeArr.push(i)
+  const prevMonthDays = [];
+    for (let i = startDay; i <= lastMonthDays; i++) {
+      prevMonthDays.push(i)
     }
-  }
 
-  const daysArr = []
+  const currentMonthDays = [];
   for (let i = 1; i <= monthDays; i++) {
-    daysArr.push(i)
+    currentMonthDays.push(i)
   }
 
-  const daysAfterArr = []
+  const nextMonthDays = [];
   if (daysAfter !== 7) {
     for (let i = 1; i <= daysAfter; i++) {
-      daysAfterArr.push(i)
+      nextMonthDays.push(i)
     }
   }
 
   return {
-    lastMonthDays,
-    startDayNumber,
-    daysBeforeArr,
-    daysArr,
-    daysAfterArr,
-    firstSundayOftheMonth
+    prevMonthDays,
+    currentMonthDays,
+    nextMonthDays,
   }
 }
