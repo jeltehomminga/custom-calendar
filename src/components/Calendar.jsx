@@ -16,7 +16,6 @@ const Calendar = props => {
     setMonth(Number(dateValues[1]))
     setDay(Number(dateValues[0]))
     setYear(newYear)
-    debugger
   }, [date])
 
 
