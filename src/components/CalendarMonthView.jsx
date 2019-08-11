@@ -33,7 +33,6 @@ const CalendarMonthView = ({
     "November"
   ];
 
-  console.log(monthViewDays);
   return (
     <>
       {month && month !== 0 && monthViewDays && (
