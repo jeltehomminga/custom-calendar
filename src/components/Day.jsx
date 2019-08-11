@@ -1,13 +1,13 @@
-import React from "react";
+import React from 'react'
 
-const Day = ({ day, month, year, onDateChange }) => (
+const Day = ({ day, onDateChange, color, selectedDay }) => (
   <button
-    className="day"
+    className={`day ${selectedDay ? 'selected-day' : undefined}`}
     key={`prevMonth-${day}`}
-    onClick={() => onDateChange(`${day} - ${month} - ${year}`)}
-  >
+    style={{ color }}
+    onClick={onDateChange}>
     {day}
   </button>
-);
+)
 
-export default Day;
+export default Day

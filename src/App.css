@@ -46,6 +46,7 @@ input {
   border: none;
   font-size: 1.3em;
   margin-left: 10px;
+  color: #000066;
 }
 
 .calendar-container {
@@ -117,4 +118,14 @@ button{
 
 .output-text { 
   margin: 0 10px;
+  min-width: 60px;
+  text-align: center;
+  font-size: 1.2em;
+  color: #000066;
+}
+
+.selected-day {
+  background: #000066;
+  color: white;
+  border-radius: 5px;
 }
