@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/custom-calendar/static/css/main.243cf6cf.chunk.css",
+    "main.js": "/custom-calendar/static/js/main.dd7dbb4d.chunk.js",
+    "main.js.map": "/custom-calendar/static/js/main.dd7dbb4d.chunk.js.map",
+    "runtime~main.js": "/custom-calendar/static/js/runtime~main.87206652.js",
+    "runtime~main.js.map": "/custom-calendar/static/js/runtime~main.87206652.js.map",
+    "static/js/2.3136fb29.chunk.js": "/custom-calendar/static/js/2.3136fb29.chunk.js",
+    "static/js/2.3136fb29.chunk.js.map": "/custom-calendar/static/js/2.3136fb29.chunk.js.map",
+    "index.html": "/custom-calendar/index.html",
+    "precache-manifest.5253af4ecf31a6c3611e4991034e9eaa.js": "/custom-calendar/precache-manifest.5253af4ecf31a6c3611e4991034e9eaa.js",
+    "service-worker.js": "/custom-calendar/service-worker.js",
+    "static/css/main.243cf6cf.chunk.css.map": "/custom-calendar/static/css/main.243cf6cf.chunk.css.map"
+  }
+}
