@@ -1,10 +1,4 @@
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -24,7 +18,7 @@
   display: flex;
   flex-wrap: wrap;
   width: 300px;
-  border: grey 1px solid;
+  border: lightgrey 1.5px solid;
   border-radius: 3px;
 }
 
@@ -41,7 +35,7 @@
   padding: 5px;
   height: 100%;
   color: grey;
-  font-size: 35px;
+  font-size: 45px;
 }
 
 textarea:focus, input:focus{
@@ -50,6 +44,8 @@ textarea:focus, input:focus{
 
 input {
   border: none;
+  font-size: 1.3em;
+  margin-left: 10px;
 }
 
 .calendar-container {
@@ -65,17 +61,18 @@ input {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  border: gray solid 1px;
+  border: lightgray solid 1.5px;
   border-radius: 3px;
   width: 300px;
   margin-bottom: 30px;
+  padding-left: 0 10px;
 }
 
 .inputfield-container {
   display: flex;
   flex-direction: column;
-  padding-left: 20px;
   justify-content: space-between;
+  width: 200px;
 }
 
 .inputicon-container {
@@ -94,4 +91,30 @@ button{
 	font: inherit;
 	cursor: pointer;
 	outline: inherit;
+}
+
+.startdate {
+  color: slategray;
+  font-size: 0.9;
+  width: 100%;
+  margin-left: 10px;
+}
+
+.startdate-monthcontainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 10px;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.output-text { 
+  margin: 0 10px;
 }
